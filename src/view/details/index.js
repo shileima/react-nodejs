@@ -41,7 +41,6 @@ class Details extends Component {
     render(){
         
         let {loading,data} = this.props;
-        console.log(data)
         return (<div className="wrap">
             <TxtDetails 
                 loading={loading}
