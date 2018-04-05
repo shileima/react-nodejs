@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import {Menu,Row,Col} from 'antd';
+import {Row,Col} from 'antd';
 import IndexMenu from './indexMenu';
 import IndexList from './indexList';
 
 class Index extends Component {
     render(){
-        //console.log(this.props.match)
         let tab = this.props.match.params.id
         return (
             <Row className="wrap">
@@ -20,7 +18,6 @@ class Index extends Component {
                     <IndexList tab={tab} />
                 </Col>
             </Row>
-            
         )
     }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import { Layout, Row, Col, Divider, SubMenu, Icon, Dropdown, Button } from 'antd';
+import { Layout, Row, Col, Divider, Icon, Dropdown, Button } from 'antd';
 import Nav from './nav';
 
 export default class MainHeader extends Component {

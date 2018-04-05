@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import {Card,Avatar} from 'antd';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import TxtDetails from './txtDetails';
-import TxtTag from '../index/txtTag';
-import {Link} from 'react-router-dom';
 import ReplyList from './replyList';
 
 class Details extends Component {

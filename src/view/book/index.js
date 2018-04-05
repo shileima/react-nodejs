@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Card} from 'antd';
 import data from './data';
 import PublicCard from '../publicCard';
 

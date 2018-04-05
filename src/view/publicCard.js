@@ -8,7 +8,7 @@ class  publicCard extends Component {
             {data.map((item,index)=><Card 
                 title={item.title}
                 type="inner"
-                key={{index}}
+                key={index}
                 >
                 <div dangerouslySetInnerHTML = {{
                     __html:item.content

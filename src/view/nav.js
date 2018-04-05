@@ -14,7 +14,7 @@ class Nav extends Component{
     }
 
     shouldComponentUpdate(nextProps){
-        if(nextProps.location.pathname.split('/')[1] != this.state.now){
+        if(nextProps.location.pathname.split('/')[1] !== this.state.now){
             this.setState({
                 now: this.getNow()
             })
