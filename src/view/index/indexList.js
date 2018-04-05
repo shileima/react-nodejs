@@ -12,24 +12,31 @@ class IndexList extends Component {
       this.state = {
         page:1
       }
-      this.getDate(this.props.tab);
+      this.getDate(this.props.tab,this.state.page);
     }
 
     shouldComponentUpdate(nextProps,nextState){
       //console.log(nextProps)
+      if(this.state.page !== nextState.page){
+        this.getDate(this.props.tab,nextState.page);
+        return false;
+      }
       if(this.props.tab !== nextProps.tab){
-        this.getDate(nextProps.tab);
+        this.setState({
+          page:1
+        });
+        this.getDate(nextProps.tab,1);
         return false;
       }
       return true;
     }
 
-    getDate(tab){
+    getDate(tab,page){
       this.props.dispatch((dispatch)=>{ // 'dispatch' not 'dispath'
         dispatch({
           type: 'LIST_UPDATE',
         })
-        axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.state.page}&limit=15`)
+        axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=20`)
         .then((res)=>{
           // 这里设置的值对应 改变 在这个组件的 reducer，也就是 reducer/indexList 里面的function switch
           dispatch({ 
@@ -47,12 +54,23 @@ class IndexList extends Component {
     }
 
     render(){
-      //console.log(this.props)
+      //console.log(this.state.page)
       let {loading,data} = this.props;
+      let pagination = {
+        current:this.state.page,
+        pageSize:20,
+        total:1000,
+        onChange:((current)=>{
+          this.setState({
+            page:current
+          })
+        })
+      }
         return(
             <List
             loading={loading}
             dataSource={data}
+            pagination={loading?false:pagination}
             renderItem={item => (
               <List.Item
                 key={item.id} 

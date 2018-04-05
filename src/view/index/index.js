@@ -15,7 +15,7 @@ class Index extends Component {
                     <IndexMenu id="indexXsMenu" mode="horizontal" />
                 </Col>
                 <Col md={18} xs={24} className="indexList">
-                    <IndexList tab={tab} />
+                    <IndexList tab={tab} />            
                 </Col>
             </Row>
         )
